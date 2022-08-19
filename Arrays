@@ -1,0 +1,205 @@
+//========================Transpose of a matrix===================//
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		 Scanner scn=new Scanner(System.in);
+         int n=scn.nextInt();
+         int arr[][]=new int[n][n];
+         for(int i=0;i<n;i++){
+           for(int j=0;j<n;j++){
+             arr[i][j]=scn.nextInt();
+           }
+         }
+       for(int i=0;i<n;i++){
+         for(int j=0;j<i;j++){
+             int temp=arr[i][j];
+             arr[i][j]=arr[j][i];
+             arr[j][i]=temp;
+         }
+       }
+      for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+          System.out.print(arr[i][j]+" ");
+        }
+        System.out.println();
+      }
+	}
+}
+
+
+//========================Alternate matrix traversal===================
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scn=new Scanner(System.in);
+       int n=scn.nextInt();
+       int m=scn.nextInt();
+       int arr[][]=new int[n][m];
+      for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+          arr[i][j]=scn.nextInt();
+        }
+      }
+      for(int r=0;r<n;r++){
+        if(r%2==0){
+          for(int c=0;c<m;c++){
+            System.out.print(arr[r][c]+" ");
+          }
+        }else{
+          for(int c=m-1;c>=0;c--){
+            System.out.print(arr[r][c]+" ");
+          }
+        }
+      }
+	}
+}
+
+//==========================spiral traversal============================
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		//your code here
+       Scanner scn=new Scanner(System.in);
+       int n=scn.nextInt();
+       int m=scn.nextInt();
+       int arr[][]=new int[n][m];
+       for(int i=0;i<n;i++){
+         for(int j=0;j<m;j++){
+           arr[i][j]=scn.nextInt();
+         }
+       }
+     int minr=0,minc=0;
+      int maxr=n-1,maxc=m-1;
+      int tne=m*n;
+      int counter=0;
+
+      while(counter<tne){
+          //top wall
+        for(int r=minr,c=minc;c<=maxc && counter<tne;c++){
+          System.out.print(arr[r][c]+" ");
+          counter++;
+        }
+        minr++;
+
+        //right wall
+        for(int r=minr,c=maxc;r<=maxr && counter<tne;r++){
+          System.out.print(arr[r][c]+" ");
+          counter++;
+        }
+        maxc--;
+
+        //bottom wall
+        for(int r=maxr,c=maxc;c>=minc && counter<tne;c--){
+          System.out.print(arr[r][c]+" ");
+          counter++;
+        }
+        maxr--;
+
+        //left wall
+        for(int r=maxr,c=minc;r>=minr && counter<tne;r--){
+          System.out.print(arr[r][c]+" ");
+          counter++;
+        }
+        minc++;
+      }
+
+
+	}
+}
+
+//===================rotate 90 degree======================
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+         Scanner scn=new Scanner(System.in);
+       int n=scn.nextInt();
+      int m=scn.nextInt();
+       int arr[][]=new int[n][m];
+      for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+          arr[i][j]=scn.nextInt();
+        }
+
+      }
+      transpose(arr);
+      for(int j=0;j<m/2;j++){
+        for(int i=0;i<n;i++){
+          int temp=arr[i][j];
+          arr[i][j]= arr[i][m-1-j];
+          arr[i][m-1-j]=temp;
+        }
+      }
+
+      for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+          System.out.print(arr[i][j]+" ");
+        }
+        System.out.println();
+      }
+
+    }
+   public static void transpose(int [][]arr){
+     int n=arr.length;
+     int m=arr[0].length;
+
+     for(int i=0;i<n;i++){
+       for(int j=0;j<i;j++){
+         int temp=arr[i][j];
+         arr[i][j]=arr[j][i];
+         arr[j][i]=temp;
+       }
+     }
+
+   }
+}
+
+//=======================facing the sun=========================
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		 Scanner scn=new Scanner(System.in);
+       int n=scn.nextInt();
+      int arr[]=new int[n];
+      for(int i=0;i<n;i++){
+        arr[i]=scn.nextInt();
+      }
+      int count=0;
+      int max=-1;
+      for(int i=0;i<n;i++){
+        if(arr[i]>max){
+          count++;
+          max=arr[i];
+        }
+      }
+      System.out.println(count);
+	}
+}
