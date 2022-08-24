@@ -1,0 +1,29 @@
+//===========================HRECURS - Hello Recursion==========================
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		//your code here
+       Scanner scn=new Scanner(System.in);
+      int t=scn.nextInt();
+      for(int t1=1;t1<=t;t1++){
+          int n=scn.nextInt();
+         int arr[]=new int[n];
+         for(int i=0;i<n;i++){
+           arr[i]=scn.nextInt();
+         }
+        int sum=helper(arr,0);
+        System.out.println("Case "+t1+": "+sum);
+      }
+	}
+   public static int helper(int arr[],int idx){
+     if(idx==arr.length)return 0;
+     int fsum=helper(arr,idx+1);
+     return fsum+arr[idx];
+   }
+}
