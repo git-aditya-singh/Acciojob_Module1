@@ -27,3 +27,31 @@ public class Main
      return fsum+arr[idx];
    }
 }
+
+//==================================noX============================
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		//your code here
+       Scanner scn=new Scanner(System.in);
+      String str=scn.next();
+      String ans=solve(str,0);
+      System.out.println(ans);
+    }
+   public static String solve(String str,int idx){
+    if(idx==str.length())return "";
+    String asf=solve(str,idx+1);
+     if(str.charAt(idx)=='x'){
+       return asf;
+     }
+     return str.charAt(idx)+asf;
+   }
+
+
+}
