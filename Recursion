@@ -93,3 +93,33 @@ public class Main
     }
 
 }
+
+//=============================countABC================================
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		//your code here
+      Scanner scn=new Scanner(System.in);
+      String str=scn.next();
+      int ans=solve(str,0);
+      System.out.println(ans);
+
+    }
+   public static int solve(String str,int idx ){
+       //base case
+      if(idx>str.length()-3)return 0;
+     //faith
+      if(str.substring(idx,idx+3).equals("abc")||str.substring(idx,idx+3).equals("aba")){
+        return 1+solve(str,idx+1);
+      }
+     return solve(str,idx+1);
+
+
+   }
+
+}
