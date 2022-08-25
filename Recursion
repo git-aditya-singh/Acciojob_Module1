@@ -121,5 +121,36 @@ public class Main
 
 
    }
+}
+
+//=========================pairStar===========================================
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+     //write your code here
+      Scanner scn=new Scanner(System.in);
+      String str=scn.next();
+      String ans=pairStar(str,0);
+      System.out.println(ans);
+    }
+   public static String pairStar(String str,int idx){
+   //base case
+     if(idx==str.length()-1){
+       return str.charAt(idx)+"";
+     }
+
+     //faith
+     String fans=pairStar(str,idx+1);
+     if(str.charAt(idx)==fans.charAt(0)){
+       return str.charAt(idx)+"*"+fans;
+     }
+     return str.charAt(idx)+fans;
+   }
 
 }
